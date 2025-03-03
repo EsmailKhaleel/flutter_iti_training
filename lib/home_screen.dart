@@ -35,37 +35,32 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(onPressed: _incrementCounter, icon: const Icon(Icons.add)),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            OutlinedButton.icon(
-              label: const Icon(Icons.add),
-              onPressed: _incrementCounter,
-              icon: Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ),
-            OutlinedButton.icon(
-              label: const Icon(Icons.minimize),
-              onPressed: _decrementCounter,
-              icon: Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ),
-          ],
+      body: Container(
+        color: Theme.of(context).colorScheme.onSurface,
+        child: Center(
+          child: Text(
+            '$_counter',
+            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+            onPressed: _decrementCounter,
+            child: const Icon(Icons.remove, size: 32),
+          ),
+          const SizedBox(width: 20),
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            child: const Icon(Icons.add, size: 32),
+          ),
+        ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

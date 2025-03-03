@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Stylish Counter',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 0, 37, 48)),
+            seedColor: const Color.fromARGB(255, 45, 12, 42)),
         useMaterial3: true,
       ),
       home: const HomeScreen(),
