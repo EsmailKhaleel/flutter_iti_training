@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iti_training/home_screen.dart';
+// import 'package:iti_training/home_screen.dart';
+import 'package:iti_training/layout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 45, 12, 42)),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const LayoutScreen(),
     );
   }
 }
