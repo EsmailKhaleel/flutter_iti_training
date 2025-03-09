@@ -6,8 +6,18 @@ class LayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Day 4')),
-      backgroundColor: Colors.redAccent,
+      appBar: AppBar(
+        title: const Text(
+          'Day 4',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Theme.of(context).colorScheme.onPrimaryFixed,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+        ),
+      ),
+      backgroundColor: Theme.of(context).colorScheme.onSurface,
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.only(bottom: 8.0),
@@ -17,10 +27,10 @@ class LayoutScreen extends StatelessWidget {
             Container(
               width: 100,
               height: double.infinity,
-              color: Colors.amber,
+              color: Theme.of(context).colorScheme.onPrimaryFixedVariant,
             ),
             Expanded(
-              child: Container(
+              child: SizedBox(
                 width: 100,
                 height: double.infinity,
                 child: Row(
@@ -29,12 +39,13 @@ class LayoutScreen extends StatelessWidget {
                     Container(
                       width: 80,
                       height: 80,
-                      color: Colors.deepPurpleAccent,
+                      color:
+                          Theme.of(context).colorScheme.onPrimaryFixedVariant,
                     ),
                     Container(
                       width: 80,
                       height: 80,
-                      color: Colors.indigo,
+                      color: Colors.deepPurple,
                     ),
                   ],
                 ),
@@ -43,7 +54,7 @@ class LayoutScreen extends StatelessWidget {
             Container(
               width: 100,
               height: double.infinity,
-              color: Colors.greenAccent,
+              color: Colors.purple,
             ),
           ],
         ),

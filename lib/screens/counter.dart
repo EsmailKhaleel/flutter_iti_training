@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class CounterScreen extends StatefulWidget {
+  const CounterScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<CounterScreen> createState() => _CounterScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _CounterScreenState extends State<CounterScreen> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -26,13 +26,22 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("Home", style: Theme.of(context).textTheme.titleLarge),
+        title: Text("Home",
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(color: Colors.white)),
         centerTitle: true,
-        leading: const Icon(Icons.menu),
+        backgroundColor: Theme.of(context).colorScheme.onPrimaryFixed,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+        ),
         actions: [
-          const Icon(Icons.star),
-          IconButton(onPressed: _incrementCounter, icon: const Icon(Icons.add)),
+          const Icon(Icons.star, color: Colors.white),
+          IconButton(
+              onPressed: _incrementCounter,
+              icon: const Icon(Icons.add, color: Colors.white)),
         ],
       ),
       body: Container(
@@ -50,11 +59,13 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FloatingActionButton(
+            heroTag: const ValueKey('fab1'),
             onPressed: _decrementCounter,
             child: const Icon(Icons.remove, size: 32),
           ),
           const SizedBox(width: 20),
           FloatingActionButton(
+            heroTag: const ValueKey('fab2'),
             onPressed: _incrementCounter,
             child: const Icon(Icons.add, size: 32),
           ),
