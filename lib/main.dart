@@ -4,6 +4,7 @@ import 'package:iti_training/screens/counter.dart';
 import 'package:iti_training/screens/layout.dart';
 import 'package:iti_training/screens/login.dart';
 import 'package:iti_training/screens/messenger.dart';
+import 'package:iti_training/screens/products.dart';
 
 void main() {
   runApp(const MyApp());
@@ -105,6 +106,30 @@ class LabsScreen extends StatelessWidget {
                   builder: (context) => MessengerScreen(),
                 )),
                 child: const Text("Messenger Lab"),
+              ),
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: 200,
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const BmiScreen(),
+                )),
+                child: const Text("BMI Lab"),
+              ),
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: 200,
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ProductsScreen(),
+                )),
+                child: const Text("API Lab"),
               ),
             ),
             const SizedBox(height: 10),

@@ -310,27 +310,30 @@ class _BmiScreenState extends State<BmiScreen> {
             ),
           ),
           Container(
-            height: 50,
+            height: 70,
             width: double.infinity,
             color: const Color.fromARGB(255, 235, 21, 85),
             child: MaterialButton(
               color: const Color.fromARGB(255, 235, 21, 85),
               onPressed: () {
                 var result = weight / (pow(height / 100, 2));
-                debugPrint(result.round().toString());
+                debugPrint(result.toStringAsFixed(2));
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) => BmiResultScreen(
-                              age: counter,
-                              isMale: isMale,
-                              result: result.round(),
-                            ))));
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => BmiResultScreen(
+                            age: counter,
+                            isMale: isMale,
+                            result: result.toStringAsFixed(2),
+                          ))),
+                );
               },
               child: const Text(
                 'Calculate',
                 style: TextStyle(
                   color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
                 ),
               ),
             ),

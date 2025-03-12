@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class BmiResultScreen extends StatelessWidget {
   final bool isMale;
-  final int result;
+  final String result;
   final int age;
   const BmiResultScreen({
     super.key,
