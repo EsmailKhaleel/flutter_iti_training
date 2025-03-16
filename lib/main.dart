@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:iti_training/screens/bmi.dart';
 import 'package:iti_training/screens/counter.dart';
@@ -5,8 +6,14 @@ import 'package:iti_training/screens/layout.dart';
 import 'package:iti_training/screens/login.dart';
 import 'package:iti_training/screens/messenger.dart';
 import 'package:iti_training/screens/products.dart';
+import 'package:iti_training/screens/produts_layout.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -130,6 +137,18 @@ class LabsScreen extends StatelessWidget {
                   builder: (context) => const ProductsScreen(),
                 )),
                 child: const Text("API Lab"),
+              ),
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: 200,
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ProductsLayoutScreen(),
+                )),
+                child: const Text("Cubit Layout"),
               ),
             ),
             const SizedBox(height: 10),

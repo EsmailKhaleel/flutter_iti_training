@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "783730760736",
+    "firebase_url": "https://fir-app-f6a15-default-rtdb.firebaseio.com",
+    "project_id": "fir-app-f6a15",
+    "storage_bucket": "fir-app-f6a15.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783730760736:android:19b53e114cadb66d8ff045",
+        "android_client_info": {
+          "package_name": "com.example.iti_training"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783730760736-t774qra3n74512hns9csa50trn4vcog3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL2q-6fcA_El8_9btH9QHbansLoTKO-HA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783730760736-t774qra3n74512hns9csa50trn4vcog3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "783730760736-2kkvq1r28d4gs5k0nq2rv04fmg8k5kmn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.itiTraining"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

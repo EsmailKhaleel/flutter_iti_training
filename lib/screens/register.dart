@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:iti_training/firebase_service/auth.dart';
+import 'package:iti_training/screens/login.dart';
 import 'package:iti_training/screens/produts_layout.dart';
-import 'package:iti_training/screens/register.dart';
 import 'package:iti_training/widgets/snackbar.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   bool isPasswordVisible = false;
   final _formKey = GlobalKey<FormState>();
   String? _enteredEmail;
@@ -40,17 +40,17 @@ class _LoginScreenState extends State<LoginScreen> {
     return null;
   }
 
-  Future<void> _submitLogin() async {
+  Future<void> _submitRegister() async {
     if (!_formKey.currentState!.validate()) {
       return;
     }
     _formKey.currentState!.save();
     try {
-      await auth.signIn(_enteredEmail!, _enteredPassword!);
+      await auth.register(_enteredEmail!, _enteredPassword!);
       if (!context.mounted) {
         return;
       }
-      showSnackBar(context, "Successfully Signed In With: $_enteredEmail");
+      showSnackBar(context, "Successfully Registered With: $_enteredEmail ");
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => const ProductsLayoutScreen(),
       ));
@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (!context.mounted) {
         return;
       }
-      showSnackBar(context, "Failed to Sign In \n$e");
+      showSnackBar(context, "Failed to Sign up \n$e");
     }
   }
 
@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Login',
+          'Register',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Theme.of(context).colorScheme.onPrimaryFixed,
@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 const SizedBox(height: 60),
                 Text(
-                  "LOGIN",
+                  "Register",
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 32,
@@ -135,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   height: 50,
                   child: ElevatedButton.icon(
-                    onPressed: _submitLogin,
+                    onPressed: _submitRegister,
                     style: ElevatedButton.styleFrom(
                       backgroundColor:
                           Theme.of(context).colorScheme.onPrimaryFixed,
@@ -144,8 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    icon: const Icon(Icons.login_outlined, color: Colors.white),
-                    label: const Text("Login",
+                    label: const Text("Sign Up",
                         style: TextStyle(fontSize: 18, color: Colors.white)),
                   ),
                 ),
@@ -153,14 +152,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have an account? "),
+                    const Text("Have an account? "),
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const RegisterScreen(),
+                          builder: (context) => const LoginScreen(),
                         ));
                       },
-                      child: const Text("Sign Up",
+                      child: const Text("Sign In",
                           style: TextStyle(fontWeight: FontWeight.bold)),
                     ),
                   ],
